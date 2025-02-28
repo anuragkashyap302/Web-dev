@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <h1>EVENT REGISTRATION</h1>
+</head>
+<body>
+    <form >
+    <label for="name1">NAME:</label>
+    <br>
+    <input type="text" name="name1" , id="name1">
+  <br>
+
+    <label for="name2">EMAIL:</label>
+    <br>
+    <input type="text" name="name2" , id="name2">
+    <br>
+
+    <label for="name3">PHONE:</label>
+    <br>
+    <input type="tel" name="name3" , id="name3">
+
+<br>
+    <label for="name4">OCCUPATION:</label>
+    <br>
+    <select name="name4" id="name4">
+        <option value="STUDENT">STUDENT</option>
+        <option value="PROFESIONAL">PROFESIONAL</option>
+        <option value="others">OTHERS</option>
+
+    </select>
+    <br>
+    <br>
+    <label for="name5">TOPICS OF INTREST</label>
+    <br>
+    <!-- tenno me se koi ek hi option user chun ske isliye tenno ka naam same rakh diye -->
+    <input type="radio" name="radio1" id="radio1">
+    <label for="name5">HTML</label>
+    <br>
+    <input type="radio" name="radio1" id="radio2">
+    <label for="name5">CSS</label>
+    <br>
+    <input type="radio" name="radio1" id="radio3">
+     <label for="name5">JAVASCRIPT</label>
+     <br>
+     <br>
+     <input type="submit" value="submit">
+     <br>
+     <br>
+<!-- html css javascript wale ko checkbox tpe input se bhi kar sakte hai teeno ko ek group me kar do fileidset tag se and legend tags se naming kar do topic of intrest -->
+<fieldset>
+    <legend>TOPIC OF INTREST</legend>
+    <label for="checkbox1">HTML</label>
+    <input type="checkbox" name="checkbox1" id="checkbox1">
+    <br>
+     <br>
+     <label for="checkbox2">CSS</label>
+    <input type="checkbox" name="checkbox2" id="checkbox2">
+    <br>
+     <br>
+     <label for="checkbox3">JAVASCRIPT</label>
+    <input type="checkbox" name="checkbox3" id="checkbox3">
+    <br>
+     <br>
+</fieldset>
+<br>
+<label for="textarea1">COMMENT:</label>
+<br>
+
+<textarea name="textarea1" id="textarea1" cols="30" rows="10"></textarea>
+
+<input type="submit" value="register">
+
+    </form>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body style="background-color: #212121; color: brown;">
+    <ul class="language">
+        <li>
+            Javascript
+        </li>
+    </ul>
+    
+</body>
+<script>
+    function addlanguage(langname){
+       //ek element create karo and class languagae me apppend kar do
+       const li =document.createElement('li');
+       li.innerHTML = `${langname}`
+       document.querySelector('.language').appendChild(li); 
+
+    }
+    addlanguage("python")
+    addlanguage("cpp");
+    // is mehtod me puraa tree travese krna padta and last me jake append karna padta hai
+
+    // same kam but durse method se
+    function addoptmiallang(langname){
+        const li = document.createElement('li');
+        // yaha ek alg text node bana liye jisse pura tree travese nahi karna pada
+        li.appendChild(document.createTextNode(langname))
+         document.querySelector('.language').appendChild(li); 
+    }
+    addoptmiallang('html');
+    addoptmiallang('css');
+
+    // agar edit karna chate ho to
+    const secondlang = document.querySelector("li:nth-child(2)")
+   // secondlang.innerHTML = "react" one mehtod
+   const newli = document.createElement('li');
+   newli.textContent = "react";
+   // ab python ke jagah pe react ho jayega
+   secondlang.replaceWith(newli);
+
+   //edit of first child
+   const firstlang = document.querySelector("li:first-child")
+   firstlang.outerHTML = '<li>Typescript</li>' // pura html hi change
+
+   // remove
+   const lastlang = document.querySelector('li:last-child')
+   lastlang.remove() //css delte kar diya
+
+</script>
+</html>

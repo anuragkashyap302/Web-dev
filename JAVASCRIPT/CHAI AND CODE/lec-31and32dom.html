@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>DOM Learning</title>
+    <style>
+        .bg-black{
+         background: #222121f8;
+         color: rgb(26, 151, 223);
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <div >
+    <h1 id="title" class="heading">DOM Learning on chai and code</h1>
+    <h2>Lorem ipsum dolor sit amet.</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quos ducimus,
+         quia pariatur incidunt a sit delectus quis odio dolorem dolores 
+         debitis quisquam veniam, temporibus officia! Eveniet 
+         enim cupiditate reiciendis.</p>
+         <ul>
+            <li>One </li>
+            <li>Two</li>
+            <li>Three</li>
+         </ul>
+     </div>
+</body>
+</html>
+<!-- html ek dom ke tarah hai jiska doucment utaha ke hum ukso edit kar sakte hai usse hi dom manipulaton blota hai
+   dom ek modeal jo tree ek tarah staore rakhta hai sare elemt ko jsse usko acess kar ke use edit kar sakte hai -->
+<!-- document.getElementById('firstHeading')
+<h1 id=​"firstHeading" class=​"firstHeading mw-first-heading">​…​</h1>​
+document.getElementById('firstHeading').innerHTML = "<h1> Anurag kashyap</h1>"
+'<h1> Anurag kashyap</h1>' -- you can change the dom using various property one them it si>
+
+ document.getElementById('firstHeading').className will tell the heading class
+  document.getElementById('firstHeading').id will tell id of that element
+
+  document.getElementById('firstHeading').getAttribute('class') will also tell class of element
+   document.getElementById('firstHeading').setAttribute('class' , 'test') will set the class name as test
+
+    const title =  document.getElementById('firstHeading') you can use title varible for this haeing elemetn becuase we store it
+    title.style.backgroundClor = 'green'
+    title.style.padding = '12px' you can set any property 
+
+    // if want inner text of tilte
+    title.innerHTML , title.innercontent , title.innertext 
+
+  // you can get element classname also
+  documentgetElementByclassName 
+
+  // sab ko ek sath lene ke liye we use qurery slector
+  document.querySelector('h2') // jitne h2 honge usme phele tumko la ke de dega
+ document.querySelector('#tile') // for id
+  document.querySelector('.heading')// for class
+
+  jaise upper ek ul llist uska clor chnage karne hai to qurey slectior lage ke kar denge
+  const list = document.querySelector('ul')
+undefined
+const turng = list.querySelector('li')
+undefined
+turng.style.backgroundColor = "green"
+'green'
+
+// if you want to slect all at one time use qureryslectorall and modify
+document.querySelectorAll('li')
+NodeList(3) [li, li, li]
+const templist = document.querySelectorAll('li')
+undefined
+templist[0].style.Color = "red"
+'red'
+templist[0].style.color = 'red'
+'red'
+
+// all at one time
+templist.forEach(function (l){
+l.style.backgroundColor = 'green'}
+VM1386:2 Uncaught SyntaxError: missing ) after argument list
+[NEW] Explain Console errors by using Copilot in Edge: click
+         
+         to explain an error. 
+        Learn more
+        Don't show again
+templist.forEach(function(l){})
+undefined
+templist.forEach(function(l){l.style.backgroundColor = 'green'})
+undefined
+
+
+// node list se arary me convert kar sakte ho tum
+Array.from(templist) // now you can applay all array property and modify
+
+templist.forEach(function(li)){
+ li.style.color  = 'black';
+ li.style.padding = '10px';
+ li.innerText = 'hitesh';
+}
+
+
+

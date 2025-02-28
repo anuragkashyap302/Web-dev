@@ -1,0 +1,145 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 100%;
+    height: 100%;
+    overflow-x: none;
+    background-color: beige;
+   
+}
+.navcontainer{
+    width:  100%;
+    background-color: rgba(11, 235, 235, 0.848);
+    min-height: 80px;
+    display: flex;
+    justify-content:center ;
+    align-items: center;
+    position: relative;
+   
+   
+
+}
+nav{
+    width: 100%;
+}
+#navlist{
+    width: 100%;
+    padding: 15px;
+    list-style: none;
+    font-size: 2.5rem;
+    display: flex;
+justify-content: space-between;
+
+   
+
+
+}
+p{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+   color: brown;
+   text-shadow:blanchedalmond 1px 1px;
+   
+}
+a{
+    text-decoration: none;
+    color: brown;
+}
+#navitems{
+    display: flex;
+    gap: 50px;
+    text-shadow:blanchedalmond 1px 1px;
+   
+
+}
+.footer{
+    background-color: rgba(231, 36, 91, 0.848);
+   
+    width: 200vb;
+    text-align: center;
+    min-height: 45px;
+   
+
+}
+.footer p{
+    color: rgba(150, 187, 187, 0.867);
+    font-size: 2rem;
+    
+}
+.contentbox{
+    width: 50%;
+    margin: auto;
+    background-color: rgba(163, 233, 216, 0.611);
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    box-shadow: 0px 0px 30px black;
+    padding: 30px;
+
+}
+.item{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.rightbox{
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s linear 0s;
+}
+.rightbox img{
+    height: 400px;
+    border-radius: 10px;
+    transition: all 0.6s ease-in 0s;
+}
+.rightbox:hover{
+    transform: scale(1.1);
+}
+.leftbox{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.leftbox h2{
+    font-size: 1.7rem;
+    color: chartreuse;
+}
+.leftbox h1{
+    font-size: 2rem;
+    color: crimson;
+    text-shadow: 1px 1px whitesmoke;
+
+}
+
+.ingbox{
+    font-size: 1.3rem;
+}
+.processbox{
+    font-size: 1.1rem;
+}
+
+
+.rightbox .overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+   width: 100%;
+   background-color: rgba(133, 246, 206, 0.305);
+   border-radius: 20px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   opacity: 0;
+   transition: all 0.3s linear 0s;
+}
+.rightbox:hover .overlay{
+    opacity: 1;
+}
+.rightbox .overlay span{
+    color: rgb(233, 6, 6);
+    font-size: 1.3rem;
+}

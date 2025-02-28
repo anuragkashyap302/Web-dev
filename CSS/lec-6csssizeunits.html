@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        .box{
+            border: 2px solid red;
+            /* border ka width 50% of width taken by line */
+            width: 50%;
+        }
+        .parent{
+            border: 2px solid blue;
+            background-color: antiquewhite;
+            /*abhi kuch mention nahi hai to parent bhi screen ka pura width lega and child yani child overlap kar jayega parnt tag pe */
+            /* now parent ka kuch width mention karke uske relative me child ka width do tumko parent dikh jayega */
+            /* chlid hamesha parent ke respect me hi show hoga reati;ve unit me */
+            /* now this tag is 50% acc to his parent */
+            width: 50%;
+           
+        }
+        .child{
+            border: 1px solid rgb(205, 3, 111);
+            background-color: gold;
+            /* child ka width 50% kiye to ye parent ke 50% jagah lega it always follw imidiate parent if we change parent then this also change */
+            /* this tag is 25% acc to his parent agar parent 50% ahi to usak 25% hoga ye */
+            width: 25%;
+           
+        }
+        .container{
+            border: 2px dotted green;
+            background-color: chartreuse;
+            /* you cn give height and width acc to viewpoart(full screen) also */
+            height: 20vh;
+            /* 100vh means is tag ko pure screen or viewport ka height dedo */
+            width: 20vw;
+            /* vw is for width */
+        }
+        .container2{
+            font-size: 5px;
+        }
+        .box2{
+            /* em unit relative hota hai apne parnt se yaha parnt ka size 5px hai to child ka size 10em means 10*5 = 50px hoga 
+               by deflut 1em = 16 px hota hai agar kuch maintain na ho to ya parnat ka size kuch set na kare to*/
+            font-size: 10em;
+        }
+        .first{
+            background-color: aqua;
+            border: 5px solid blue;
+            /* rem is reliative to root elemrnt root elment defalut size is 16px so 2rem mesns 32px ka ho jayega is tag ka font size */
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        welcome to anurag world
+    </div>
+
+    <div class="parent">
+        <div class="child">
+            CHILD
+        </div>
+    </div>
+
+    <div class="container">
+        I LOVE YOU
+    </div>
+
+    
+
+    <div class="container2">
+       
+        <div class="box2">
+            I AM CREATED FOR PIXEL EM
+        </div>
+    </div>
+
+    <p class="first"> HELLO I  HERE FOR REM</p>
+</body>
+</html>

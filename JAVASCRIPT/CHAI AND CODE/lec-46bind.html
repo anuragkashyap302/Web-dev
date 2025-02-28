@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>Button CLicked</button>
+</body>
+<script>
+    class react{
+        constructor(){
+            this.library = "React"
+            this.server = "https:// loclhost:39u"
+            // requirment use of bind 
+            document.querySelector('button').addEventListener('click' , this.handleclick.bind(this))
+        }
+
+        
+         
+        handleclick(){
+            // handele click button clicked ko to dikha diya kycki usko this ke dwara button pe event listener laga diya tha
+            // but server ko print nhi kar paya kyki button click par handle clikc call to hua but sever print nahi hau kyuki uska refeentce tha hi nhai 
+            // for this handleclick ko bind kar do with arugumen this jisse uske pass sara current valurible ka refence mil jayega 
+            console.log("button clicked");
+            console.log(this.server);
+            
+            
+        }
+
+        
+        
+    }
+    //object ke baare me jano sab kuch pata kar sakte ho 
+    const descipter = Object.getOwnPropertyDescriptor(Math , "PI")
+    console.log(descipter); // op me aayaga wirtable hai ki nhai configuragbel hai ki nahi etc
+
+    const chai = {
+        name:"ginger cahi",
+        price: 250 ,
+        isavl : true
+    }
+    console.log(chai);
+
+    // chai object ke kisi property ka description chiye to use propery
+    console.log(Object.getOwnPropertyDescriptor(chai , "name"));
+    // you can chagee the defaut property of your own crated object 
+    Object.defineProperty(chai , "name",{
+        writable : false,
+        enumerable:false
+    })
+
+    // ab to tum apne object pe ittrate bhi nahi kar sakte hai kyki enumble false hai name property ke liye
+    for(let [key , value] of Object.entries(chai)){
+        console.log(`${key}: ${value}`); // naam print nahi hoga kyki sifr uspe hi enumberable false lga hua hai
+        
+    }
+
+    
+    
+    
+</script>
+</html>

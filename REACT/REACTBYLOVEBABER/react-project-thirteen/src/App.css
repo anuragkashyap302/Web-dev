@@ -1,0 +1,53 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 200px;
+ 
+  
+}
+.count{
+  font-size: xx-large;
+ 
+}
+.button{
+  font-size: xx-large;
+  border: solid 3px rgb(213, 246, 125) ;
+  width: 200px;
+  border-radius: 10px;
+  
+  
+}
+.button2{
+  font-size: xx-large;
+  border: solid 3px rgb(213, 246, 125) ;
+  width: 300px;
+  border-radius: 10px;
+  
+  
+}
+.button:hover{
+   background-color: rgb(27, 48, 53);
+   border: 2px solid rgb(66, 66, 242);
+  
+
+}
+.button2:hover{
+  background-color: rgb(2, 51, 99);
+  border: 2px solid rgb(66, 66, 242);
+ 
+
+}
+
+/* .input{
+  width: 120px;
+  height: 20px;
+  margin-top: 20px;
+  background-color: rgb(249, 129, 153);
+  border: 3px solid rgb(105, 250, 105);
+  font-size: medium;
+  font-weight: 700;
+
+} */
+

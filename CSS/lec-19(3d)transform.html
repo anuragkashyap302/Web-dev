@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding :0;
+           box-sizing: border-box;
+        }
+        body{
+            width: 100%;
+            height: 100%;
+        }
+        .container{
+            height: 100%;
+            width: 100%;
+            display: grid;
+            gap: 1rem;
+            background-color: rgb(53, 48, 48);
+          padding: 4rem;
+          grid-template-columns: repeat(3 ,1fr);
+           
+        }
+        .item{
+            padding: 4rem;
+            border: 3px solid blue;
+            background-color: aqua;
+            color: brown;
+            
+        }
+        #x1:hover{
+           transform: rotateX(45deg);
+
+        }
+        #y1:hover{
+            transform: rotateY(45deg);
+
+        }
+        #z1:hover{
+            transform: rotateZ(45deg);
+        }
+      #x2:hover{
+       transform: translateX(100px);
+   }
+
+   #y2:hover{
+    transform: translateY(100px);
+    /* for oppsite movemet you can use neagative sign */
+   }
+
+   #z2:hover{
+    transform:perspective(300px) translateZ(100px);
+    /* z aixs ke liye ek extra persective use karna padega ki ktne dur se dekna chate ho */
+   }
+
+   #x3:hover{
+    transform:scaleX(1.5);
+   }
+
+   #y3:hover{
+    transform: scaleY(1.5);
+   }
+
+   #z3:hover{
+    transform:perspective(300px) scaleZ(1.5) rotateY(30deg);
+   }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item" id="x1">ROTATE IN X</div>
+        <div class="item" id="y1">ROTATE IN Y</div>
+        <div class="item" id="z1">ROTATE IN Z</div>
+        <div class="item" id="x2">TRANSLATE IN X</div>
+        <div class="item" id="y2">TRANSLATE IN Y</div>
+        <div class="item" id="z2">TRANSLATE IN Z</div>
+        <div class="item" id="x3">SCALE IN X</div>
+        <div class="item" id="y3">SCALE IN Y</div>
+        <div class="item" id="z3">SCALE IN Z</div>
+        
+    </div>
+</body>
+</html>

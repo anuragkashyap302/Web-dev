@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess The Number</title>
+    <link rel="stylesheet" href="lec-35project3.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Number Guessing Game</h1>
+        <p>Try And Guess a Random Number Between 1 and 100.</p>
+        <p>You Have 10 Attemps to Guess The right number.</p>
+        <br>
+        <form class="form">
+            <label for="guessField" id="guess">Guess a Number</label>
+            <input type="text" id="guessField" class="guessField">
+            <input type="submit" id="subt" value="Sumbit Your Guess" class="guessSumbit">
+        </form>
+        <div class="resultParas">
+            <p>Previous Guesses: <span class="guesses"></span></p>
+            <p>Guesses Remaining: <span class="lastResult">10</span></p>
+            <p class="lowOrHi"></p>
+        </div>
+    </div>
+    <script src="lec-35project3.js"></script>
+</body>
+</html>

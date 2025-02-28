@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 350px;
+            height: 350px;
+            background-color: blue;
+            border: 5px solid red;
+            border-radius: 10px;
+   
+            /* kis chhez me tum traisition add karna chate ho wi orioerty ne mention kar d0 khali width or height or all me trisition dehna hai as your wish */
+            transition-property: all;
+            transition-duration: 4s;
+            transition-delay: 1s;
+            transition-timing-function: linear;
+            /* you can use shortcut also  */
+            /* transition: all 2s ease-in 5s; */
+            /* property , duration , tiiming funtion, delay */ 
+
+            }
+            .box:hover{
+                /* traisition dikne ke liye tumko hower karna padega ki kaha tak ya kis state tak tum tarisition dekna chate ho hover(mouse click on the element) */
+                width: 1400px;
+                height: 900px;
+                /* jaise hi hover karge to phele color chage then traisioin color change bhi trasition ka hi pat hai */
+                background-color: aqua;
+                
+            }
+    </style>
+</head>
+<body>
+    <div class="box">
+
+    </div>
+</body>
+</html>

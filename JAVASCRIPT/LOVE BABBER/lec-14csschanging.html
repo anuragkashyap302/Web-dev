@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="fdiv" style="background-color: aqua; padding: 2rem;" >
+        First Div
+        <p id="fpara" style="background-color: rgb(43, 17, 177); padding: 2rem;">
+            First Para 
+        </p>
+        <div id="sdiv" style="background-color: rgb(206, 220, 13); padding: 2rem;">
+            Second Div
+            <p id="spara" style="background-color: rgb(212, 20, 23); padding: 2rem;">Second Para</p>
+        </div>
+    </div>
+</body>
+</html>
+
+<!-- you can change your css by js by diff method you can do practice in console -->
+
+<!-- 1st - .style property -->
+ <!-- 
+undefined
+let paraelement = document.getElementById('spara');
+undefined
+console.log(para
+
+console.log(paraelement);
+VM298:1 <p id=​"spara" style=​"background-color:​ rgb(212, 20, 23)​;​ padding:​ 2rem;​">​Second Para​</p>​
+undefined
+//now you can change your css praoperty by .style 
+
+paraelement.style.backgroundColor = 'brown';
+'brown' -->
+
+<!-- 2nd  .cssText use for changing multiple property -->
+ <!-- 
+let paraelement = document.getElementById('spara'
+VM721:1 Uncaught SyntaxError: missing ) after argument list
+let paraelement = document.getElementById('spara');
+
+undefined
+//get by the sytax
+undefined
+lec-14csschanging.html:1  [Deprecation] The 'textprediction' attribute will be removed in the future. Use the 'writingsuggestions' attribute instead. See https://learn.microsoft.com/en-us/microsoft-edge/web-platform/site-impacting-changes for more information.
+paraelement.style.backgroundColor;
+'rgb(212, 20, 23)'
+//now you can set multiple propwerty by cssText
+undefined
+lec-14csschanging.html:1  [Deprecation] The 'textprediction' attribute will be removed in the future. Use the 'writingsuggestions' attribute instead. See https://learn.microsoft.com/en-us/microsoft-edge/web-platform/site-impacting-changes for more information.
+paraelement.style.cssText = "background-color:black ; color: white ; padding: 0.5rem";
+'backgroundcolor:black ; color :white ; padding : 0.5rem' -->
+
+<!-- 3rd by setattribute -->
+ <!-- 
+let firstelement = document.querySelector('#fdiv');
+undefined
+firstelement
+<div id=​"fdiv" style=​"background-color:​ aqua;​ padding:​ 2rem;​">​…​</div>​
+//ab tum div ke andar change kar sakte ho by setattribute
+undefined
+lec-14csschanging.html:1  [Deprecation] The 'textprediction' attribute will be removed in the future. Use the 'writingsuggestions' attribute instead. See https://learn.microsoft.com/en-us/microsoft-edge/web-platform/site-impacting-changes for more information.
+firstelement.setAttribute('class' , 'firstclass');
+undefined
+firstelement
+<div id=​"fdiv" style=​"background-color:​ aqua;​ padding:​ 2rem;​" class=​"firstclass">​…​</div>​
+
+// vlass add ho gya na new chehz add karte jao purana replce hote jyega-->
+
+

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVENTS</title>
+</head>
+<body style="background-color: #414141">
+    <h2>Amazing Images</h2>
+    <div>
+        <ul id="Images"  style="display: flex;flex-direction: row; align-items: center; justify-content: space-between;" >
+            <li><img width="200px" id="photshop" src="IMG20250101152527_01.jpg" alt="photshop"></li>
+            <li><img width="200px" id="kolkata" src="IMG20250101152528.jpg" alt=""></li>
+            <li><img width="200px" id="river" src="IMG20250101152529.jpg" alt=""></li>
+            <li><img width="200px" id="island" src="IMG20250101152530.jpg" alt=""></li>
+            <li><img width="200px" id="anurag" src="IMG20250101152531.jpg" alt=""></li>
+            <li style="color: blue;"> <a href="https://google.com" id="google">Google</a></li>
+        </ul>
+    </div>
+</body>
+<script>
+    //  1st approch using onclick 
+    // document.getElementById('anurag').onclick = function(){
+    //     alert("bahi ke photo pe click wahhh")
+    // }
+
+
+    // evey type of event lister are present so we can feasibley use those
+    // document.getElementById('anurag').addEventListener('click' , function(){
+    // alert("phir se click on bahi photo")
+    // } , false) // defalut value fasle hi hota hai
+
+    // awlays you cannot put alret so you have to recive the event
+    document.getElementById('anurag').addEventListener('click' , function(e){
+       console.log(e); // event ek object ki tarrh hota hai jo click ki har details present hoti kaies , kab , kha ckick hua you have to fecth it
+       // or you can see in console 
+       
+     } , false) 
+     // kuch bhi event hua to wo object ke rup me aayaga ab tumko jo chiye uski liye spcfiec code ya nickmnae ban hua hai leleo
+     // type of event , timesstamp , defaultPrevented 
+     // target , toelement , srcelement , currenttarget , clientx , clientY 
+     // screenX , screenY , altkey , ctrlkey , keycode
+
+     // event propgation -> matlab agr ek chhez pe do eventlistener laga ho to sbse phele sabse bhitar wala print hoaga
+     // jaise ek photo and ul dono pe event listneer lago to jab usi phota pe click kargao to pherle likhe ga phto click then list click
+
+     document.getElementById('Images').addEventListener('click' , function(e){
+      // alert("list pe cllick hua hai"); 
+       
+     } , false) 
+     document.getElementById('anurag').addEventListener('click' , function(e){
+     // alert("us photao pe click hua hai "); // do baar alret aage phele phot then list clicked
+       
+     } , false) 
+
+     // but agar flase ki jagah true kar de to ye chiz ulta ho jaata usko bolte hai event captring
+
+     // aagar event progation rakona hia ki niche se upper mat jao 
+     // use e.stopPropagation()
+
+     document.getElementById('google').addEventListener('click' , function(e){
+        e.preventDefault();
+        e.stopPropagation();
+       // alert("gogle clicked"); // ab khali ek baar alret only google ciilced
+     },false)
+
+        document.querySelector('#Images').addEventListener('click', function(e){
+            console.log(e.target) // ecact kha click hua hai wo bataya but aisa porptyr red it
+            console.log(e.target.parentNode); // paprent matlab photo jis elemnt me hai wo pura aaya here li me hai
+            console.log(e.target.tagName); // it will give which tag is clicde so keep one strict check is ki schi me img hi clikc hua ahi
+            if(e.target.tagName === 'IMG'){
+                console.log(e.target.id);
+                let removeit = e.target.parentNode 
+                removeit.remove();
+            }
+            
+            // let removeit = e.target.parentNode 
+            // removeit.remove();
+             // jaha click kargo wo remove ho jayga
+
+          //  removeit.parentNode.removeChild(removeit); // you can do by tihis also
+          /// there are many property you can try 
+        }
+       , false)
+
+</script>
+</html>

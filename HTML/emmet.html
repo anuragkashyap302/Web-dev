@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<style>
+    .container{
+      /* //  padding: 2rem; */
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+       
+    }
+</style>
+<body>
+    <!-- p>img is shortcut for para ke andar image chaiye to -->
+    <p>
+        <img src="" alt="">
+    </p>
+<!-- p>p> is short cut for para ke andar para means parent and sibilng ke tarah-->
+    <p>
+        <p>
+            <p>
+                <p>
+
+                </p>
+            </p>
+        </p>
+    </p>
+
+    <!-- two tag togrther use + sign  -->
+     <!-- section + article -->
+      <article></article>
+      <section></section>
+
+      <!-- you can nest the tags also p>a para ke andar anchor tags -->
+       <p><a href=""></a></p>
+       <p>i red in blue</p>
+
+
+      <!-- shordt cut for creatoing id is p#para1 and same for all tags -->
+        <p id="para1"></p>
+        <article id="article1"></article>
+         <!-- we can crate a class for storing same type of element shotcut -> p.para for multiple class article.dog.cat.lion and so on -->
+        <p class="para"></p>
+        <article class="dog"></article>
+        <article class="dog cat lion"></article>
+
+        <!-- p>ul>li*3 -->
+        <p>
+            <ul>
+                <li>a</li>
+                <li>b</li>
+                <li>c</li>
+            </ul>
+        </p>
+
+        <!-- section>p+p+p -->
+        <section>
+            <p>i am booss</p>
+            <p>anu is love</p>
+            <p>you arw fooll</p>
+        </section>
+
+        <!-- header + footer + main -->
+        <header></header>
+        <main></main>
+        <footer></footer>
+
+        <!-- use of div tag to wrap all the tags in sigle tags  -->
+         <div class="container">
+            <p>
+                <ul>
+                    <li>a</li>
+                    <li>b</li>
+                    <li>c</li>
+                </ul>
+            </p>
+            <!-- ye asbhi tags ab div tags ke andar hai jiaka naam container hai -->
+
+         </div>
+
+         <!-- div is block element it takes whole line of the screen -->
+         <div style="background-color: aqua;"> THis is My First Div</div>
+         <div style="background-color: green;"> THis is My Second  Div ye duse line me print ho gya jagah rahtehue bhi</div>
+
+         <!-- span is inline elment its only line till i write the sentence  -->
+          <span style="background-color: yellowgreen;">This Is My First Span Tags</span>
+          <span style="background-color: red;">This Is MySecond Span Tags ye same line me print ho gya</span>
+
+
+<!-- pra is block ekement  -->
+          <p style="background-color: green;"> First Para </p>
+          <p style="background-color: grey;"> Second Para</p>
+
+          <!-- display inline likhne se block element inline elemnt me change ho jata hai -->
+
+          <p style="background-color: grey; display: inline;"> first Para</p>
+          <p style="background-color: blue;display: inline;"> Second Para</p>
+
+
+          <!-- ul>(li>P>a)*5 -->
+          <ul>
+            <li>
+                <p><a href="https://www.google.com">A</a></p>
+                <!-- yaha A anchor tag ke andaar hai to ye hume link tak le jayega -->
+            </li>
+            <li>
+                <p><a href="https://www.google.com">B</a></p>
+                <!-- yaha B para tag ke andar hai to simple paragaph ki tarah act karega -->
+            </li>
+            <li>
+                <p><a href="">C</a></p>
+            </li>
+            <li>
+                <p><a href="">D</a></p>
+            </li>
+            <li>
+                <p><a href="">E</a></p>
+            </li>
+          </ul>
+
+          <!-- nav>ul>(li*a)*4 -->
+          <nav>
+            <ul>
+                <li></li>
+                <a href="">Home</a>
+                <li></li>
+                <a href="">About us</a>
+                <li></li>
+                <a href="">Contact us</a>
+                <li></li>
+                <a href="">Log Out</a>
+            </ul>
+          </nav>
+
+          <!-- anchor tags use for link , mail ,call -->
+         <div class="container">
+            <a href="https://www.google.com">chlo goole chle</a>
+            <a href="mail to:kumaranuragg68@gmail.com">mail karna chate ho</a>
+            <a href="tel: 7667033488">call karo be</a>
+         </div>
+           
+
+
+</body>
+</html>

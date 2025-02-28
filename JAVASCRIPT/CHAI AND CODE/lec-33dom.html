@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body style="background-color: rgb(44, 54, 51); color: #f5b350;">
+    <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+</body>
+    <script>
+        const parent = document.querySelector('.parent')
+// arary ki tarah is varible sab kuch aa gaya not full araray like nodelist 
+        console.log(parent);
+        console.log(parent.children); // ye hume node list lake dega parent ka chilederen hai
+        console.log(parent.children[1].innerHTML); // children ka first element 
+
+  for (let i = 0; i < parent.children.length; i++) {
+   console.log(parent.children[i].innerHTML);
+   
+    
+  }
+  // op asia aayea consloe log me in insecpt
+        
+// lec-32dom.html:59 Tuesday // ye phele walwa output hai 2nd childere
+
+// lec-32dom.html:62 Monday
+// lec-32dom.html:62 Tuesday
+// lec-32dom.html:62 Wednesday
+// lec-32dom.html:62 Thursday
+
+parent.children[1].style.color = "orange"
+// some property to acess child 
+console.log(parent.firstElementChild);
+console.log(parent.lastElementChild);
+
+ const dayone = document.querySelector('.day')
+ console.log(dayone); // monday ko print karega 
+ console.log(dayone.parentElement); // give you the parent of dayone
+ console.log(dayone.nextElementSibling);// just niche wala
+ console.log("NODES" , parent.childNodes); // ye ek pura trre structerure me jtna child node hoag toatal count de deaga
+
+//  NODES 
+// NodeList(9) [text, div.day, text, div.day, text, div.day, text, div.day, text]
+
+
+ // creating new element directly in jsfile and seteing everything you want 
+ const div = document.createElement('div') // div ka ek element directly ban gaya
+ console.log(div);
+ div.className = "main"
+ div.id = Math.round(Math.random()*10 +1) // koi sa bhi num uske id me aa jayaga and elemt crated 
+ div.setAttribute("title" , "js genrated elemnet")
+ div.style.backgroundColor = "green"
+ div.style.padding = "30px"
+ // div.innerText = "direct js ka elemet hu" // you can do like this also or
+ const addtext = document.createTextNode("direct js created element hu")
+ div.appendChild(addtext)
+ document.body.appendChild(div) // div ko curr body me add
+
+
+ 
+ 
+ 
+
+        
+        
+    </script>
+</html>

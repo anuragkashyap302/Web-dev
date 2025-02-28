@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 style="color: red; background-color: aqua;" >SSC REGESTRATION</h2>
+  <form >
+
+    <fieldset>
+        <legend style="color: darkgreen;">PERSONAL INFORMATION</legend>
+        <label for="name1">NAME:</label>
+        <input type="text" name="name1" , id="name1">
+
+        <label for="name2">EMAIL:</label>
+        <input type="text" name="name2" , id="name2">
+    
+        <label for="name3">PHONE:</label>
+        <input type="tel" name="name3" , id="name3">
+
+        <label for="name4">DOB:</label>
+        <input type="date" name="name4" , id="name4">
+        <label for="name5">ADDAHR:</label>
+        <input type="tel" name="name5" , id="name5">
+
+
+        <label for="gender">GENDER</label>
+        <!-- gender likhne ke liye tum para tags ka bhi use kar sakte ho kyki ye srif dikhane ke lie hai na to labling nahi bhi karo ge to chelega -->
+
+      <input type="radio" name="radio1" id="radio1">
+      <label for="radio1">MALE</label>
+      
+      <input type="radio" name="radio1" id="radio2">
+      <label for="radio2">FEMALE</label>
+      <br>
+      <br>
+      <label for="slector1">COUNTRY:</label>
+     <select name="country" id="slector1">
+        <!-- genrally 1st option hi show karga drop down button me by defalut to isliye usme chhose your county de diye  -->
+        <option value="">choose your country</option>
+        <option value="ind">INDIA</option>
+        <option value="amr">AMRICA</option>
+        <option value="AUS">AUSTRILIA</option>
+        </select>
+<br>
+<br>
+        <label for="name4">OCCUPATION:</label>
+    <select name="name4" id="name4">
+        <option value="">choose your profession</option>
+        <option value="STUDENT">STUDENT</option>
+        <option value="PROFESIONAL">PROFESIONAL</option>
+        <option value="others">OTHERS</option>
+
+    </select>
+    <br>
+    <br>
+    <label for="photo">PLEASE UPLOAD YOUR CLEAR PIC</label>
+    <input type="file" name="photo" id="photo">
+    </fieldset>
+<br>
+
+
+    <fieldset>
+        <legend>ADDRESS</legend>
+        <label for="street">STREET:</label>
+        <input type="text" name="street" , id="street">
+
+        <label for="city">CITY:</label>
+        <input type="text" name="city" , id="city">
+    
+        <label for="state">STATE:</label>
+        <input type="text" name="state" , id="state">
+
+        <label for="code">ZIP CODE:</label>
+        <input type="tel" name="code" , id="code">
+
+    </fieldset>
+<br>
+
+    <fieldset>
+        <legend>OTHER INFORMATION</legend>
+        <label for="textarea1">COMMENT:</label>
+<textarea name="textarea1" id="textarea1" cols="30" rows="10"></textarea>
+<label for="agree">I AGREE TO TERMS OF SERVICE</label>
+<input type="checkbox" name="agree" id="agree">
+    </fieldset>
+    <br>
+    <input type="submit" value="register">
+  </form>  
+</body>
+</html>

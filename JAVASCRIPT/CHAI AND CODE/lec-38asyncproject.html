@@ -1,0 +1,48 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+    <h1>Asynchronus Effect</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+ </body>
+ <script>
+    const sayname = function(){
+        console.log("anurag");
+        
+    } 
+    // setTimeout inbuilt function hai jo ki diye hue time ke badd funtionc ko run karega jo uske ander me hai
+    // setTimeout(function(){
+    //     console.log("anurag");
+        
+    // } , 2000) // do sec ke badd namme print hoga
+
+    document.querySelector('h1').innerHTML = "Best Js Series" // isi kaam ko do sec baad karna hai to
+    const changetext = function(){
+        document.querySelector('h1').innerHTML = "Best Js Series" 
+    }
+
+   // setTimeout(sayname , 2000) // same thing in diffrenet ways
+    setTimeout(changetext , 2000) // ab do sec baadheading me chnage aayga
+
+    // if want to stop the chnge 
+    document.querySelector('#stop').addEventListener('click' , function(){
+        clearTimeout(changetext);
+        console.log("stopped"); // aagr 2sec se phele button daba diye to koi chngae nahi hoga sab settimeout clear
+        
+    })
+    // if you want to set inteval 
+    const saymyname = function(str){
+        console.log(str );
+        
+    }
+    const interval = setInterval(saymyname , 1000) // har ek sec ke badd naam print hoaga
+    // agar rokna hai to 
+    clearInterval(interval);
+
+ </script>
+ </html>

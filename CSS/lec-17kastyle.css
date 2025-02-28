@@ -1,0 +1,141 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.body{
+    height: 100%;
+    width:  100%;
+}
+a{
+    text-decoration: none;
+}
+.container{
+    max-width: 85vw;
+   max-height: 60vh;
+    padding: 2rem 1rem;
+    margin:  0 auto;
+}
+.header_container{
+    margin-bottom: 2.8rem;
+}
+.header_title{
+    margin-bottom: 1rem;
+    font-size: 1.7rem;
+    line-height: 2rem;
+    font-weight: 700;
+    text-align: center;
+}
+.header_desc{
+    max-width: 568px;
+    text-align: center;
+    color: rgb(105, 99, 99);
+    margin :0 auto;
+}
+.main_container{
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(4 ,1fr);
+}
+.card_container{
+    height: 55vh;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(173, 54, 54);
+    border-radius: 2px;
+
+}
+.card_image_container{
+    position: relative;
+    overflow: hidden;
+    height: 15rem;
+
+}
+.card_image{
+     object-fit: cover;
+     object-position: center;
+    position: absolute;
+    height: 100%;
+    width: 100%; 
+}
+.card_title_container{
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+}
+.card_container:hover .card_image{
+ transform: scale(1.2);
+ transition-duration: 200ms;
+}
+.card_title{
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: rgb(30, 29, 29);
+    line-height: 1.5rem;
+    margin-bottom: 0.6rem;
+}
+
+.card_title_anchor:hover .card_title{
+    color: blue;
+
+
+}
+.card_desc{
+    color: rgb(8, 8, 10);
+    font-size: 1rem;
+
+}
+.card-footer_container{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    align-items: flex-end;
+
+}
+.author_container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    padding-left: 0.4rem;
+    padding-bottom: 0.3rem;
+    
+   
+
+}
+.author_avtar_container{
+    height: 2.5rem;
+    width: 2.5rem;
+    overflow: hidden;
+    border: 1px solid rgb(237, 11, 11);
+    border-radius: 50%;
+
+}
+.author_info_container{
+    display: flex;
+    flex-direction: column;
+}
+.author_name{
+    color: rgb(46, 46, 238);
+}
+.card_tag_container{
+    height: 1.3rem;
+    font-size: 1rem;
+    border: 0.5px solid rgb(16, 13, 13);
+     line-height: .01rem; 
+    border-radius: 3px;
+     padding: 0.4rem;
+     padding-top: 0.5rem; 
+     padding-bottom: 0.1rem;
+     align-items: center;
+     
+   
+}
+@media (min-width : 935px){
+    .main_container{
+        grid-template-columns: repeat(2,1fr);
+        /* agar width 935 se kam hai to grid template ko 2 col me dikhna screen par abhi 4 hai normal case me na  */
+    }
+}
+
+/* for resposive  content you can use media query at diff width and height see using inspect option  */

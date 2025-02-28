@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #81c8ff;">
+     <!-- these are the steps follow when someone request frome xmlhttpsrequest -->
+    <!-- The XMLHttpRequest.readyState property returns the state an XMLHttpRequest client is in. An XHR client exists in one of the following states:
+
+Value	State	Description
+0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete. -->
+</body>
+ <script>
+    const requesturl = 'https://api.github.com/users/hiteshchoudhary'
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET' , requesturl)
+    // har baaar state change hone par ye function call tumko pata chlate rahega rquest kha pucha
+   xhr.onreadystatechange = function(){
+    console.log(xhr.readyState);
+    // ab like laststate hone ke bad jo responses aaya use print kar do
+    if(xhr.readyState === 4){
+       
+        console.log(this.responseText); // print hoga sara jo leke aya consle me jake dekho
+        // ab pure respone me kuch data chiye to phle cheak ki respone kisme aaya hai agar object nahi hai to usko phle object bano
+        const data =JSON.parse( this.responseText); // string se json me converst
+        console.log(data.followers); // ab tumko follower mil jayeaga
+
+        //
+        
+        
+    }
+    
+   }
+  //  console.log(xhr.readyState); // kya state hai tatakal wo print tum isko countisly bhi observer kar sakte ho
+
+    
+    xhr.send() ;// rquest chala gayea
+ </script>
+</html>

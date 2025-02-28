@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            background-color: beige;
+            display: flex;
+            height: 1000px;
+            /* display flex karne se ab flex container and flex item me divede ho gya elemnt iske uder jitme elemt hai wo sab flex item */
+            /* flex-direction: column; */
+            /* by defalut flex ka direction row hota hai  */
+            /* for revese display you can use */
+            /* flex-direction: column-reverse; */
+            /* flex-wrap: wrap; */
+            /* ye property box ko fix kar deta hai size me ui pe boxes sques nhi hoga insecpt on kar ke siqice karke dekh */
+
+            justify-content: center;
+            /* ye property main axis(yaha main axis horizontal hai kyki flex by defult row wise hota hai) ke along content ko set kar deta hai jaha bhi tum kahagoge */
+
+            /* many property are there for justify content */
+            justify-content: space-around;
+            justify-content: space-evenly;
+            /* justify-content: baseline; */
+
+            align-items: center;
+            /* aling property cross axis(by defult cross xis vertical hota hai) ke along kamm karte hai iska kamm bhi element ko place karna hi ho;ta hai */
+
+             align-content: start;
+             /* ths is use for aling content  */
+        }
+        .box{
+            height: 200px;
+            width: 200px;
+            border: 2px solid brown;
+
+        }
+        #box1{
+         background-color: aqua;
+         order: 500;
+         /* YOU can change the ;order of flex item ab first bala last me dikhega  */
+
+         flex-shrink: 4;
+         /* jab inspect karke shrink karoge to first box sab ke muqable 4 times faster shirnk hoga */
+         /* flex-grow: 2; */
+         /* flex grow kren se baccha hua space le lega particualar box */
+        }
+        #box2{
+            background-color: blue;
+            /* dusra wala box align slf karne se start me pahuch gaya */
+            align-self: self-start;
+            /* align self is working on cross axis by defalut vertical hota hai */
+        }
+        #box3{
+            background-color: orange;
+            text-align: center;
+            font-size: 30px;
+         
+            
+            
+            
+        }
+        #box4{
+            background-color: brown;
+            order: -1;
+            /* last bala sabse aage */
+            flex-basis: 400px;
+            /* used for setting dimension  */
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box" id="box1" >PHELA BOX HAI</div>
+        <div class="box" id="box2">DUSRA BOX</div>
+        <div class="box" id="box3">THISRA BOX</div>
+        <div class="box" id="box4">CHUTHA BOX</div>
+    </div>
+</body>
+</html>

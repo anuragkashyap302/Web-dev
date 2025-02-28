@@ -1,0 +1,1 @@
+console.log("namaste duniya2 hai boss ");

@@ -1,0 +1,29 @@
+ul{
+
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    padding-right: 10px;
+    background-color: aqua;
+    text-size-adjust: inherit;
+
+
+}
+.li1{
+    color: darkgreen;
+    font-size: xx-large;
+}
+
+.li2{
+    color: darkgreen;
+    font-size: xx-large;
+}
+
+.li3{
+    color: darkgreen;
+    font-size: xx-large;
+}
+.active-link{
+    /* border: 2px solid red; */
+    color: rgb(245, 6, 6);
+}

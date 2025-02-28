@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        *{
+            /* *is universal selector if we apply any proprty in this that follow for all eelment */
+            margin: 0;
+            padding: 0;
+            /* ek baar border box property laga ke dekh */
+            box-sizing: border-box;
+            
+        }
+        .box{
+            /* agar bina box-sizing border box ke property lagayege to box ka size inc karte jayega boder box lagne ke baad content shirnk hoga
+            lekin widhth and height same rhega hum kitan bhi margin and padding de sab usi ke andr hoga */
+            width: 300px;
+            height: 300px;
+            border: 3px solid red;
+            padding: 100px;
+        }
+        span{
+            border: 5px solid green;
+            /* custom width and height are not applied on inline elemeent   */
+            width: 100px;
+            height: 100px;
+            /* margin custom apply nahi ho raha kalhi horizontal me apply ho raha  hai padding custom apply ho raha hai */
+            margin: 10px;
+            padding: 1px;
+            /* agaar tum chate ho inline element block elemnt ki tarah dikhe to display block property ka use kar lo */
+
+            /* yiu cn convert block to inline also */
+            /* display: block; */
+            /* dono ka combination bhi use kar sakte ho inline-block(behiving like inline but you can add custom w,h etc) */
+            display: inline-block;
+        }
+        /* div{
+            border: 3px solid red;
+            width: 300px;
+            height: 200px;
+            margin: 200px;
+            padding: 200px;
+        }*/
+    </style> 
+</head>
+<body>
+    <!-- /* <div>
+        WELCOME TO WEBDEVELPMENT
+    </div>
+    <div>
+        WELCOME TO WEBDEVELPMENT ANURAG
+    </div> */ -->
+
+    <div class="box">
+        WELCOME TO BIHAR
+    </div>
+
+    <span>
+        THIS IS ANURAG BABY
+    </span>
+    <span>
+        THIS IS ANURAG BABY 
+    </span>
+</body>
+</html>

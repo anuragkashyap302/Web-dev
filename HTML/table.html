@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="l">
+        <!-- heading content should be in thead tags -->
+         <thead >
+
+            <!-- for crate a heading we use th tags -->
+             <th>Student Id</th>
+             <th>Student Name</th>
+             <th>Gender</th>
+             <th>Age</th>
+
+         </thead>
+         <!-- actual content should be in tbody tags -->
+          <tbody>
+            <tr>
+                <td>1234</td>
+                <td>ANURAG</td>
+                <td>MALE</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>1235</td>
+                <td>NAMAN</td>
+                <td>MALE</td>
+                <td rowspan="3">20</td>
+                <!-- rowspan 3 matalb two row  exend ho ja matalab wo ab do ka jagha chek lega -->
+                 <!-- colspan 3 matalb two col  exend ho ja matalab wo ab do ka jagha chek lega-->
+            </tr>
+            <tr>
+                <!-- if you want to delte any data just remove it and empty space filled by remainig content by using rowspan property -->
+                <td>1236</td>
+                <td>UJJAWAL</td>
+                <td>MALE</td>
+                
+            </tr>
+            <tr>
+                <td>1237</td>
+                <td>SHIVJEE</td>
+                <td>MALE</td>
+                
+            </tr>
+          </tbody>
+    </table>
+</body>
+</html>

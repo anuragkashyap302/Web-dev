@@ -1,0 +1,43 @@
+.container{
+    width: 100vw;
+    height: 100vh;
+    background-color: beige;
+    border: 5px solid black;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    
+
+}
+
+.box{
+    width: 350px;
+    height: 350px;
+    background-color: blue;
+    border: 5px solid red;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* box ka transition karna hain to box ke anadr */
+    transition: all 3s linear 1s;
+    /* tarnsiton matlab ek state se durse state me jana and transrom matlab dusre state jate waqt kya changing chiye */
+
+    }
+    p{
+        font-size: 25px;
+        font-style: italic;
+        
+    }
+    .box:hover{
+        /* transform property use for transformation of element */
+        transform: rotate(360deg);
+        /* 360 sse colckwise rotation for anticlock wise use negative sign */
+        transform: scale(2);
+        /* agr chota karna chate ho hover karne par to 1 se chota vlaue de do */
+        transform: skew(45deg);
+        /* tilte ho jayega img */
+
+        transform: translate(500px ,-300px);
+        /* movement of box fin x and y dirction we cn use negative sign als0 for oppositer direction moverrnt */
+    }

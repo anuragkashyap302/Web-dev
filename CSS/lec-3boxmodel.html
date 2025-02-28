@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /* you can set padding and margin 0 by defult using universal selctor * is denotrd by unversal selctor  */
+        /* *{
+            padding: 0;
+            margin: 0;
+        } */
+        h1{
+            background-color: aquamarine;
+            /* you can add border to your content by using border  */
+            /* border-style: solid;
+            border ka style dotted solid kuch bhi rakh sakte ho as your wish
+            border-color: crimson;
+            border-width: 5px;
+            border radius means kone ka golie 
+            border-radius: 10px; */
+            /* tum sab property ek sath bhi laga sakte ho style clor and width */
+             border: solid blue 5px ;
+            border-radius: 10px; 
+            /* tum chaho to border ko sirf top ya lefft right bottom kisi ek jagah ya multiple jagh laga sakte ho */
+            /* border-top: solid blue 10px; */
+            /* border-top-left-radius: 5px; isse sirf top left wala kona goal hoga you do anyehere your choice */
+            
+            /* head , para ye sab block element hai puri line ka space le lete hai to tum width hieght sab kuch specfy kar salte ho */
+            width: 410px;
+            height: 100px;
+        }
+        span{
+            /* height and does not work on span tag because it is inline element it will take sapace acc to content */
+            width: 410px;
+            height: 100px;
+
+        }
+        .firstpara{
+            background-color: burlywood;
+            border: solid black 5px ;
+            border-radius: 10px;
+            width: 410px;
+            height: 100px;
+
+            /* koi bhi content css box model pe kam karta hai joki rectengular hota hai aur wo char layer rakhta hai content , padding ,border , margin */
+            /* gap betwwen content and border is called padding you can do padding left , right , top , bootom */
+            /* padding: 50px; */
+          padding-top: 20px;
+          padding-bottom: 40px;
+          padding-left: 40px;
+          padding-right: 39px;
+          /* you can do it by aall in one also */
+          /* padding: 15px 25px 35px 45px; */
+          /* padding 20 px  30px you can use this also first will show for top&bottom and second will show left&right */
+
+
+
+
+            /* gap betwwn two rectangle box margin is from left , right , top , bottom you can give for anywhere */
+            /* your computer secren is also a rectanclular bax so if you write margin for first para your first para displce from secren according to maintion margin left ,right */
+            /* you can visulize in microsoft edge by inspect option */
+            margin: 60px;
+            /* you can add margin from left right top bottom  */
+
+        }
+        .secondpara{
+              background-color: crimson;
+              border: solid green 5px ;
+            border-radius: 10px;
+            width: 410px;
+            height: 150px;
+        }
+        .thirdpara{
+            background-color:rgba(24, 151, 194, 0.748);
+            border: solid blue 5px ;
+            border-radius: 10px;
+            width: 410px;
+            height: 100px;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome To WebDevelpment</h1>
+    <span> WELCOME TO ANURAG WORLD</span>
+    <p class="firstpara">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et laborum facere aliquam ipsa ullam, qui in rerum provident temporibus sit voluptas 
+        assumenda animi nostrum perferendis eveniet possimus debitis. Laudantium, nulla?</p>
+
+        <p class="secondpara">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore molestias porro tenetur vel. Quasi delectus repellendus sequi
+             saepe ipsa mollitia nisi inventore ut! Incidunt accusamus dignissimos cumque consequatur ex magni! Ullam 
+            consequuntur cum repellat delectus debitis fugit aliquam vel magnam qui similique consectetur, labore dolores, rem
+             quasi ipsam omnis. Perferendis!</p>
+
+             <p class="thirdpara">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem explicabo voluptatum soluta sit sed. 
+                Blanditiis error tempore tempora. Magni doloremque harum enim dolore exercitationem. Ipsam!</p>
+    
+</body>
+</html>

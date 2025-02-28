@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div{
+            border: 3px solid blue;
+        }
+        img{
+            margin: 10px;
+        }
+        .img2{
+            position: relative;
+            /* jo thumari curr working window hai uske relative ab tum postining kar sakte ho img2 ko aur kisi ko karna hai sytanx same jai */
+            /* top: 310px;
+            left: 210px; */
+
+            /* you can also use absolute postion (it is used for overlappping purpose) absolute is reative to closet positented ancestor*/
+            position: absolute;
+            /* jaise hi hum absolute poasting karte hai us img ka postion hat jata hai aage wale shift ho jaate hai aur wo img apne bagal waale pe 
+            overlap kar jata hai yaha img2 ko abs kar rahe hai to im3 pe wo overlap kar gaya hai isiliye imgs3 nahi dikh raha */
+            /* ab jaise hi top 100 px kiye 2 wala niche kihka and 3 wala dikne laga */
+            top: 100px;
+
+
+
+        }
+        .container{
+            position: relative;
+            height: 10000px;
+            background-color: aqua;
+        }
+       .img4{
+        position: fixed;
+        /* img 4 apne jagah par fixed hogaya ab hilega nahi */
+       }
+       .img1{
+        /* img1 top se 100px pe stick ho jayega same like fixed but not same */
+        /* sticky property valid srif apne parnert container tak hi rahti hai yaha div is parent container jabki fixed pure window ke liye fix kar deti hai */
+        position: sticky;
+        top: 100px;
+       }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="image1.jpg" alt="ANURAG" height="300px" width="200px" class="img1">
+        <img src="image2.jpg" alt="ANURAG" height="300px" width="200px"  class="img2">
+        <img src="image3.jpg" alt="ANURAG" height="300px" width="200px"  class="img3">
+        <img src="image4.jpg" alt="ANURAG" height="300px" width="200px" class="img4">
+
+    </div>
+    
+</body>
+</html>

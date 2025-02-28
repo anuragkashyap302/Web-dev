@@ -1,0 +1,39 @@
+.div1 {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.button {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    border: 1px solid black;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#gray {
+    background-color: gray;
+}
+
+#blue {
+    background-color: blue;
+}
+
+#red {
+    background-color: red;
+}
+
+#yellow {
+    background-color: yellow;
+}
+
+.heading1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.heading2 {
+    font-size: 18px;
+}

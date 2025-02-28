@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+body{
+    height: 100vh;
+    width: 100vw;
+
+}
+.container{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(47, 39, 86, 0.589);
+    display: grid;
+    padding: 30px;
+   row-gap: 1rem;
+   column-gap: 1rem;
+   /* container ke andar jo bhi chhez hoga us sab ye sabhi property apply hoga confuse hone ka nahi item ke beech me gap chiye
+   to item me nahi continer me gap add kar denge to uske ander wale cheez pe apply hoga */
+
+   /* humko rwo ;and column box chiye grid me to grid template ko use kiye and unit ke tour par fr(fractionl) use kar liye ye equally divide kar deaga
+   pure width ko according to co;ntaainer */
+   grid-template-rows:  1fr 1fr 1fr 1fr;
+   grid-template-columns: 1fr 1fr 1fr;
+
+   /* grid-template-columns: repeat(3 , 1fr);    same as privous hai short cut hai ye*/
+
+
+   /* justify-items: center; ,end , start ,strch sare item command ke acc cell me place ho jayege jha tum khaoge ye hozitally place karega*/
+
+   /*  align-items:end; vertically kam karta hai agar item ko kahi bhi vertically set karaana cahte ho to */
+
+   /* dono ka kam ek mai karna chate ho to place item use kar lo */
+}
+.item{
+    background-color: rgba(240, 13, 130, 0.495);
+    border: 5px solid rgb(25, 241, 111);
+    color: gold;
+    /* koi bhi property lagana hai to display flex karna mat bhul */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* agar do line ko bachane hai to you can use -*/
+    /* place-self: center; there are many option aalaviable strcech etc */
+    text-shadow:  whitesmoke 1px 1px;
+    font-size: large;
+}
+.header , .footer{
+    /* kion se line se sttrat hoke kha end hoga col wise */
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+.sidebar{
+    /* yaha row wise handle kar rahe hai */
+    grid-row-start: 2;
+    grid-row-end: 4;
+}
+.content1{
+    /* kisko kha tak le jana hai iska idea line se mileaga ek box do line se ghira rahta hai us hiab se soch lo */
+    grid-column-start: 2;
+    grid-column-end: 4;
+}

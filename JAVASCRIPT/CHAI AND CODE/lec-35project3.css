@@ -1,0 +1,126 @@
+
+body{
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+  }
+  
+  .wrapper{
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .wrapper h1{
+    font-size: 28px;
+    color: #007bff;
+    margin-bottom: 10px;
+  }
+  
+  .wrapper p{
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #555;
+  }
+  
+  .form{
+    margin-top: 20px;
+  }
+  
+  label{
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  input[type="text"]{
+    width: calc(100% - 20px);
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  
+  input[type="text"]:focus{
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+  }
+  
+  input[type="submit"]{
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  input[type="submit"]:hover{
+    background-color: #218838;
+    transform: translateY(-2px);
+  }
+  
+  input[type="submit"]:active {
+    background-color: #1e7e34;
+    transform: translateY(0);
+  }
+  
+  .resultParas{
+    margin-top: 20px;
+  }
+  
+  .resultParas p{
+    margin: 10px 0;
+    font-size: 16px;
+    color: #444;
+  }
+  
+  .resultParas .lowOrHi{
+    font-weight: bold;
+    color: #d9534f;
+  }
+  
+  .button{
+    margin-top: 20px;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .button:hover{
+    background-color: #0056b3;
+    transform: translateY(-2px);
+  }
+  
+  .button:active{
+    background-color: #003f7f;
+    transform: translateY(0);
+  }
+  

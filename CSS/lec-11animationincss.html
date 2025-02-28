@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            width: 100vw;
+            height: 100vh;
+            background-color: beige;
+            border: 5px solid black;
+
+        }
+        .box{
+            width: 150px;
+            height: 150px;
+            background-color: blue;
+            border: 5px solid red;
+            border-radius: 10px;
+            margin: 10px;
+            position: relative;
+            /* animation ka naam de diye jisse keyfrme me isko use kr sake  */
+            animation-name: rightmovement;
+            /* aap kinta time chahtae hai animation me */
+            animation-duration: 5s;
+            /* aap kinta bar animation chahate hai */
+            animation-iteration-count: infinite;
+            /* kitna der ke badd phir se anim;ation chalu ho */
+            animation-delay: 1s;
+            /* aap kaisa animation chate hai liner , ya shuru me fast ,ya last me fast as your wish */
+            animation-timing-function: linear;
+            /* cubic -bezerir se tu;m apne hisab se vlaue set kar sakte ho ye thume ek curve provide karta hai hit 
+            and trial hai karte jao new method patte jao */
+
+            /* animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1); */
+           /* jayega and aayga alternte karne se ui pe dekh lo */
+            animation-direction: alternate;
+            /* many option are there */
+
+            /* animation ke baad kya karna hai wo tum fill mode se decide kar sakete ho */
+            animation-fill-mode: forwards;
+            /* forwrds means animation conplete karke wahi rauk jao */
+
+
+
+        }
+        /* kaha se kahaa tak animation chate ho kerframe ke andar define karna hai */
+        @keyframes rightmovement{
+            from{
+                top: 0;
+                left: 0;
+
+            }
+
+            to{
+                top: 0;
+                left: 1400px;
+
+            }
+
+        }
+        #box2{
+            width: 150px;
+            height: 150px;
+            background-color: blue;
+            border: 5px solid red;
+            border-radius: 10px;
+            margin: 10px;
+            position: relative;
+            /* animation ka naam de diye jisse keyfrme me isko use kr sake  */
+            animation-name: leftmovement;
+            /* aap kinta time chahtae hai animation me */
+            animation-duration: 5s;
+            /* aap kinta bar animation chahate hai */
+            animation-iteration-count: infinite;
+            /* kitna der ke badd phir se anim;ation chalu ho */
+            animation-delay: 1s;
+            /* aap kaisa animation chate hai liner , ya shuru me fast ,ya last me fast as your wish */
+            animation-timing-function: linear;
+            /* cubic -bezerir se tu;m apne hisab se vlaue set kar sakte ho ye thume ek curve provide karta hai hit 
+            and trial hai karte jao new method patte jao */
+
+            /* animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1); */
+           /* jayega and aayga alternte karne se ui pe dekh lo */
+            animation-direction: alternate;
+            /* many option are there */
+
+            /* animation ke baad kya karna hai wo tum fill mode se decide kar sakete ho */
+            animation-fill-mode: forwards;
+            /* forwrds means animation conplete karke wahi rauk jao */
+
+
+
+        }
+        /* kaha se kahaa tak animation chate ho kerframe ke andar define karna hai */
+        @keyframes leftmovement{
+            from{
+                top: 650px;
+                left: 1400px;
+
+            }
+
+            to{
+                top: 650px;
+                left: 0;
+
+            }
+
+        }
+        #circle{
+            width: 50px;
+            height: 50px;
+            background-color: yellow;
+            border: 5px solid greenyellow;
+            border-radius: 100px;
+            margin: 10px;
+            position: relative;
+            top: 130px;
+            left: 950px;
+            /* yaha hum aniamtion ka shortcut use karen jaa ahe hai */
+            animation:  10s ease-in-out 0s infinite alternate-reverse none running circlemovement;
+
+        }
+        @keyframes circlemovement{
+            /* key frame ko tum kisi bhi aspect me add kar sakte ho */
+            0%{
+                top: 10%;
+                left: 50%;
+            }
+            30%{
+                top: 5%;
+                left: 40%;
+            }
+            60%{
+                top: 40%;
+                left: 10%;
+            }
+            100%{
+                top: 45%;
+                left: 40%;
+            }
+            
+
+        }
+    </style>
+</head>
+<body>
+   <div class="container">
+    <div class="box">
+
+    </div>
+    <div id="box2">
+
+    </div>
+    <div id="circle">
+
+    </div>
+
+   </div> 
+</body>
+</html>
