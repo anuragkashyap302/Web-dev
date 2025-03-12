@@ -33,6 +33,11 @@
     border-radius: 5px;
     margin-top: 0.5em;
   }
+  /* button:hover{
+    background-color: #6759ff;
+    color: #000;
+    box-shadow: 1px 1px 5px cyan;
+  } */
   .button-value {
     border: 2px solid #6759ff;
     padding: 1em 2.2em;
@@ -43,21 +48,23 @@
   }
   .active {
     background-color: #6759ff;
-    color: #ffffff;
+    color: #000;
+    box-shadow: 1px 1px 5px cyan;
   }
   #products {
     display: grid;
-    grid-template-columns: auto auto auto;
-    grid-column-gap: 1.5em;
+    grid-template-columns: auto auto auto auto;
+    grid-column-gap: 2px;
     padding: 2em 0;
   }
   .card {
     background-color: #ffffff;
     max-width: 18em;
     margin-top: 1em;
-    padding: 1em;
+    margin: 20px;
+    padding: 10px;
     border-radius: 5px;
-    box-shadow: 1em 2em 2.5em rgba(1, 2, 68, 0.08);
+    box-shadow: 10px 10px 2.5px rgba(38, 41, 239, 0.08);
   }
   .image-container {
     text-align: center;
@@ -66,12 +73,13 @@
     max-width: 100%;
     object-fit: contain;
     height: 15em;
+    width: 15em;
   }
   .container {
     padding-top: 1em;
     color: #110f29;
   }
-  .container h5 {
+  .container h4 {
     font-weight: 500;
   }
   .hide {

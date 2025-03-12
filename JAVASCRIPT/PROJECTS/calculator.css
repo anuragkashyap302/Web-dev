@@ -1,0 +1,111 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #2c3e50, #4ca1af);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.wrapper {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    text-align: center;
+}
+
+.wrapper h1 {
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 22px;
+    color: #f857a6;
+}
+.input input {
+    width: 100%;
+    padding: 15px;
+    font-size: 24px;
+    border: none;
+    border-radius: 10px;
+    text-align: right;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    outline: none;
+    margin-bottom: 15px;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+button {
+    padding: 15px;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    color: #333;
+}
+
+button:nth-child(4n) {
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    color: white;
+}
+
+button:nth-child(1), 
+button:nth-child(2), 
+button:nth-child(3) {
+    background: linear-gradient(135deg, #f857a6, #ff5858);
+    color: white;
+}
+
+button:last-child {
+    background: linear-gradient(135deg, #56ab2f, #a8e063);
+    color: white;
+}
+
+button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+.dark-mode {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);  /* Dark Gradient */
+    color: white;
+}
+.dark-mode input {
+    background: #222;
+    color: white;
+    border: 1px solid white;
+}
+.dark-mode button {
+    background: linear-gradient(135deg, #444, #666);
+    color: white;
+    border: 1px solid white;
+}
+#darkModeToggle {
+    background: linear-gradient(135deg, #ff7eb3, #ff758c);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 20px;
+    font-size: 16px;
+}
+#darkModeToggle:hover {
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+}
+
