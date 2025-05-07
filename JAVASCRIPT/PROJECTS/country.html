@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Country Details</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body{
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #8052ec, #d161ff);
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .heading1{
+      font-size: 2.5em;
+      color: #fff;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    }
+
+    .container{
+      background: #fff;
+      border-radius: 10px;
+      padding: 30px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    .country-details{
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    #country-input{
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+
+    .button{
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .button:hover{
+      background-color: #45a049;
+    }
+
+    #result{
+      display: none;
+      text-align: center;
+      font-size: 1.1em;
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    #result img{
+      width: 120px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="heading1">🌍 Get Any Country Details</h1>
+
+  <div class="container">
+    <div class="country-details">
+      <input type="text" id="country-input" placeholder="Enter country name"/>
+      <button class="button" id="searchbtn">Search</button>
+    </div>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const searchbtn = document.getElementById("searchbtn");
+    const countryInput = document.getElementById("country-input");
+    const result = document.getElementById("result");
+
+    searchbtn.addEventListener("click", () => {
+      const countryName = countryInput.value.trim();
+
+      if (countryName === "") {
+        result.innerHTML = `<h2>Please enter a country name.</h2>`;
+        result.style.display = "block";
+        return;
+      }
+
+      const url = `https://restcountries.com/v3.1/name/${countryName}?fullText=true`;
+
+      fetch(url)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Country not found");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          const country = data[0];
+          const currencyCode = Object.keys(country.currencies)[0];
+          const currencyName = country.currencies[currencyCode].name;
+          const languages = Object.values(country.languages).join(", ");
+
+          result.innerHTML = `
+            <img src="${country.flags.svg}" alt="Flag of ${country.name.common}">
+            <h2>${country.name.common}</h2>
+            <p><strong>Capital:</strong> ${country.capital[0]}</p>
+            <p><strong>Continent:</strong> ${country.continents[0]}</p>
+            <p><strong>Population:</strong> ${country.population.toLocaleString()}</p>
+            <p><strong>Area:</strong> ${country.area.toLocaleString()} km²</p>
+            <p><strong>Currency:</strong> ${currencyCode} (${currencyName})</p>
+            <p><strong>Languages:</strong> ${languages}</p>
+          `;
+
+          result.style.display = "block";
+        })
+        .catch((error) => {
+          result.innerHTML = `<h2>⚠️ ${error.message}</h2>`;
+          result.style.display = "block";
+        });
+    });
+  </script>
+</body>
+</html>

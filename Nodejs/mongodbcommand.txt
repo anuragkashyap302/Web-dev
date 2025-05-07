@@ -1,0 +1,84 @@
+MONGO DB DATABASE HAI JO DATA KO STORE KARTA HAI TO USME EK POWESHELL OR COMMND PROMPT KAH SKTE HO HOTA HAI
+JO KI BAHUT SARA COMMOND PROVIDE KARTA HAI TO DATA LIST , DLETE , EDIT , SHOW , AND MANY MORE LIKE YOU LEART IN 
+OCW SO SOME COMOND WRITEN HREE
+
+1. TO SHOW ALL THE LIST OF DATABASE (show dbs or show database)
+2. TO CREATE NEW DATABASE (use database name)
+INSIDE ONE DB THERE ARE MULTIPLE COLLECTION 
+
+3.TO CREATE COLLECTION (db.createCollection("name of collection"))
+
+4. TO DELETE THE CREATED COLLECTION (db.name of collection.drop())
+
+5. TO RENAME THE COLLECTION NAME (db.name of collection.renameCollection("new name dedo"))
+
+6. TO DELETE DATABASE (db.dropDatabase)
+
+// prcttcal work
+show dbs
+admin   40.00 KiB
+config  60.00 KiB
+local   40.00 KiB
+use myfirstdb
+switched to db myfirstdb
+db.createCollection("student")
+{ ok: 1 }
+db.student.drop()
+true
+db.createCollection("student")
+{ ok: 1 }
+db.student.renameCollection("students")
+
+
+7. TO INSERT DATA IN COLLECTION (db.name of collection.insertOne({always in object form whaterever you insert}))
+db.students.insertOne({
+    "name": "John",
+    "age": 30,
+    "car": null
+})
+// you will get acknowledged and id by MONGO id is unqiue it will use in future for further worrk
+acknowledged: true,
+  insertedId: ObjectId('67e8fe885459a978a3ec7713')
+
+  8. FOR MULTIPLE COLLECTION INSERT AT ONE TIME (insertMany);
+  db.students.insertMany([
+    { name: "Alice", age: 25, email: "alice@example.com" },
+    { name: "Bob", age: 30, email: "bob@example.com" },
+    { name: "Charlie", age: 35, email: "charlie@example.com" }
+])
+
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('67e900a65459a978a3ec7718'),
+    '1': ObjectId('67e900a65459a978a3ec7719'),
+    '2': ObjectId('67e900a65459a978a3ec771a')
+  }
+}
+
+9. TO SEE THE COLLECTION DATA (db.collection name .find().pretty());
+
+10. WANT TO SEE ANY SPECFIC DATA OF COLLECTION(db.collectionname.find({"name":"anurag"}))
+OR YOU CAN USE ID ALSO TO FIND SPCIFIC DATA
+
+db.name collection.findOne({_id:ObjectId("give the id given by mongo")})
+
+11. TO DELETE THE DATA FORM COLLECTION(db.collectionname.deleteOne({-id:ObjectId("id dedo delete ho jayega")}))
+db.students.deleteOne({_id: ObjectId('67e900a65459a978a3ec7718')})
+{
+  acknowledged: true,
+  deletedCount: 1
+}
+
+12.TO UPDATAE ANY COLLECTION(db.collectionname.updateOne({_id:ObjectId"id dedo"}, {$set:{"name":"ram" ,"email":"ram@1224"}}))
+db.students.updateOne({_id:ObjectId("67e900a65459a978a3ec7719")}, {$set:{"name":"ram" ,"email":"ram@1224"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+// SAME FOR USE UPDATAEMANY TO  UPDATAE  MULTIPLE AT ONCE
+

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IPv4 Fragmentation & Routing</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+    body { font-family: sans-serif; margin: 0; padding: 0; }
+    #controls { padding: 1rem; background: #f0f0f0; display: flex; flex-wrap: wrap; gap: 1rem; }
+    #graph { width: 100vw; height: 80vh; border-top: 1px solid #ccc; }
+    .node circle { fill: #4e79a7; cursor: pointer; }
+    .node text { fill: white; font-size: 14px; pointer-events: none; }
+    .link { stroke: #999; stroke-width: 2px; }
+    .highlight { stroke: red; stroke-width: 4px; }
+    .packet { fill: orange; stroke: #000; stroke-width: 1px; }
+    .fragment-label { font-size: 12px; fill: black; pointer-events: none; }
+  </style>
+</head>
+<body>
+  <div id="controls">
+    <label>Payload (bytes): <input type="number" id="payload" value="3000"></label>
+    <label>MTU (bytes): <input type="number" id="mtu" value="1020"></label>
+    <label>Source: <input id="src" value="A"></label>
+    <label>Destination: <input id="dst" value="D"></label>
+    <button onclick="simulate()">Simulate</button>
+    <button onclick="addNode()">Add Node</button>
+    <input id="newNode" placeholder="Node ID" style="width:60px">
+    <button onclick="addLink()">Add Link</button>
+    <input id="linkSource" placeholder="From" style="width:60px">
+    <input id="linkTarget" placeholder="To" style="width:60px">
+    <input id="linkWeight" type="number" placeholder="Weight" style="width:80px">
+    <button onclick="resetGraph()">Reset Graph</button>
+    <button onclick="clearHighlights()">Clear Highlights</button>
+  </div>
+  <svg id="graph"></svg>
+
+  <script>
+    let nodes = [
+      { id: 'A' }, { id: 'B' }, { id: 'C' }, { id: 'D' }
+    ];
+
+    let links = [
+      { source: 'A', target: 'B', weight: 1 },
+      { source: 'B', target: 'C', weight: 1 },
+      { source: 'C', target: 'D', weight: 1 },
+      { source: 'A', target: 'D', weight: 5 }
+    ];
+
+    const width = window.innerWidth;
+    const height = 600;
+    const svg = d3.select('#graph').attr('width', width).attr('height', height);
+
+    let simulation;
+    let node, link;
+
+    function restartSimulation() {
+      svg.selectAll('*').remove();
+
+      simulation = d3.forceSimulation(nodes)
+        .force('link', d3.forceLink(links).id(d => d.id).distance(150))
+        .force('charge', d3.forceManyBody().strength(-400))
+        .force('center', d3.forceCenter(width / 2, height / 2));
+
+      link = svg.selectAll('.link')
+        .data(links)
+        .enter().append('line')
+        .attr('class', 'link');
+
+      node = svg.selectAll('.node')
+        .data(nodes)
+        .enter().append('g')
+        .attr('class', 'node')
+        .call(d3.drag()
+          .on('start', dragstarted)
+          .on('drag', dragged)
+          .on('end', dragended));
+
+      node.append('circle').attr('r', 20);
+      node.append('text').attr('dy', 5).attr('text-anchor', 'middle').text(d => d.id);
+
+      simulation.on('tick', () => {
+        link.attr('x1', d => getNode(d.source).x)
+            .attr('y1', d => getNode(d.source).y)
+            .attr('x2', d => getNode(d.target).x)
+            .attr('y2', d => getNode(d.target).y);
+
+        node.attr('transform', d => `translate(${d.x},${d.y})`);
+      });
+    }
+
+    function getNode(d) {
+      return typeof d === 'object' ? d : nodes.find(n => n.id === d);
+    }
+
+    function resetGraph() {
+      nodes = [
+        { id: 'A' }, { id: 'B' }, { id: 'C' }, { id: 'D' }
+      ];
+      links = [
+        { source: 'A', target: 'B', weight: 1 },
+        { source: 'B', target: 'C', weight: 1 },
+        { source: 'C', target: 'D', weight: 1 },
+        { source: 'A', target: 'D', weight: 5 }
+      ];
+      restartSimulation();
+    }
+
+    function clearHighlights() {
+      svg.selectAll('.link').classed('highlight', false);
+    }
+
+    function addNode() {
+      const id = document.getElementById('newNode').value.trim();
+      if (id && !nodes.find(n => n.id === id)) {
+        nodes.push({ id });
+        restartSimulation();
+      }
+    }
+
+    function addLink() {
+      const source = document.getElementById('linkSource').value.trim();
+      const target = document.getElementById('linkTarget').value.trim();
+      const weight = parseInt(document.getElementById('linkWeight').value);
+      if (source && target && !isNaN(weight)) {
+        links.push({ source, target, weight });
+        restartSimulation();
+      }
+    }
+
+    function dragstarted(event, d) {
+      if (!event.active) simulation.alphaTarget(0.3).restart();
+      d.fx = d.x;
+      d.fy = d.y;
+    }
+
+    function dragged(event, d) {
+      d.fx = event.x;
+      d.fy = event.y;
+    }
+
+    function dragended(event, d) {
+      if (!event.active) simulation.alphaTarget(0);
+      d.fx = null;
+      d.fy = null;
+    }
+
+    function simulate() {
+      const payload = parseInt(document.getElementById('payload').value);
+      const mtu = parseInt(document.getElementById('mtu').value);
+      const header = 20;
+      const dataSize = mtu - header;
+      const fragments = [];
+
+      for (let i = 0; i < payload; i += dataSize) {
+        fragments.push(Math.min(dataSize, payload - i));
+      }
+
+      const src = document.getElementById('src').value;
+      const dst = document.getElementById('dst').value;
+      const graph = buildGraph(links);
+
+      let delay = 0;
+      fragments.forEach((f, i) => {
+        const path = dijkstra(graph, src, dst);
+        setTimeout(() => {
+          highlightPath(path);
+          animatePacket(path, `Fragment ${i + 1}: ${f} bytes`);
+        }, delay);
+        delay += 2000;
+      });
+    }
+
+    function buildGraph(edges) {
+      const g = {};
+      edges.forEach(e => {
+        if (!g[e.source]) g[e.source] = {};
+        if (!g[e.target]) g[e.target] = {};
+        g[e.source][e.target] = e.weight;
+        g[e.target][e.source] = e.weight;
+      });
+      return g;
+    }
+
+    function dijkstra(graph, start, end) {
+      const distances = {}, prev = {}, pq = new Set(Object.keys(graph));
+      for (let v of pq) distances[v] = Infinity;
+      distances[start] = 0;
+
+      while (pq.size) {
+        let u = Array.from(pq).reduce((a, b) => distances[a] < distances[b] ? a : b);
+        pq.delete(u);
+
+        if (u === end) break;
+        for (let neighbor in graph[u]) {
+          let alt = distances[u] + graph[u][neighbor];
+          if (alt < distances[neighbor]) {
+            distances[neighbor] = alt;
+            prev[neighbor] = u;
+          }
+        }
+      }
+
+      const path = [];
+      for (let at = end; at; at = prev[at]) path.unshift(at);
+      return path;
+    }
+
+    function highlightPath(path) {
+      svg.selectAll('.link').classed('highlight', d => {
+        const s = typeof d.source === 'object' ? d.source.id : d.source;
+        const t = typeof d.target === 'object' ? d.target.id : d.target;
+        for (let i = 0; i < path.length - 1; i++) {
+          if ((s === path[i] && t === path[i + 1]) ||
+              (t === path[i] && s === path[i + 1])) {
+            return true;
+          }
+        }
+        return false;
+      });
+    }
+
+    function animatePacket(path, labelText) {
+      const coords = path.map(p => {
+        let node = nodes.find(n => n.id === p);
+        return { x: node.x, y: node.y };
+      });
+
+      const packet = svg.append('circle')
+        .attr('r', 10)
+        .attr('class', 'packet')
+        .attr('cx', coords[0].x)
+        .attr('cy', coords[0].y);
+
+      const label = svg.append('text')
+        .attr('class', 'fragment-label')
+        .attr('x', coords[0].x + 12)
+        .attr('y', coords[0].y - 12)
+        .text(labelText);
+
+      let i = 0;
+      function move() {
+        if (i >= coords.length - 1) {
+          packet.remove();
+          label.remove();
+          return;
+        }
+        packet.transition().duration(1000)
+          .attr('cx', coords[i + 1].x)
+          .attr('cy', coords[i + 1].y);
+
+        label.transition().duration(1000)
+          .attr('x', coords[i + 1].x + 12)
+          .attr('y', coords[i + 1].y - 12)
+          .on('end', () => {
+            i++;
+            move();
+          });
+      }
+      move();
+    }
+
+    restartSimulation();
+  </script>
+</body>
+</html>

@@ -1,50 +1,28 @@
-// const lib =  require('./lib.js')
-// console.log(lib.sum(4,5));
-// ye purna method hai lekin ans aa jyaga 9
+let express = require("express");
+let mongoose = require("mongoose");
+const enqiuryRouter = require("./App/routes/web/enquiryRouters");
+require("dotenv").config();
+let app = express();
+app.use(express.json()); // ye tumko body se data lene ke liye chahiye hota hai
+// ab bada project to tumko mvc pattern pe kaam karnga padaga so alag alag folder for every thing
+// model view controller 
+// model - db se related
+// view - jo bhi tumko browser pe dikhana hai
+// controller - jo bhi tumko request milta hai usko process karne wala
+// middleware - jo bhi tumko request milta hai usko process karne wala
 
-// naya me import
-// import { sum } from "./lib.js";
+ // routes ko bulla
+ app.use('/api/website/enquiry', enqiuryRouter); // ye tumhara enquiry router hai jo tumne banaya hai
+ // http://localhost:3000/api/website/enquiry/insert ye tumhara url hai jo tumne banaya hai router ke andar
 
-// const a = 5;
-// console.log(a);
-
-// function diff(a, b){
-//     return a-b;
-// }
-// console.log(sum(4,5));
-
-// console.log(diff(5 ,3));
-// console.log("welcome to nodejsjgjg");
-// ab code automaticaly run hoagfa jasie hi kuch change kargo due to nodemon
-
-// make a server in nodejs
-let http = require("http")
-
-let server = http.createServer((request , response)=>{
-    if(request.url == "/news"){ // http://localhost:8000/news
-        // go to  news page this is own url on our  host server
-        let obj = {
-            status:1,
-            data:[{
-                newsTitle:"aajtak",
-                newsDes :"ws hello"
-            },
-            {
-                newsTitle:"dhakad news",
-                newsDes :"gnd hello"
-            }
-        ]
-        }
-        response.end(JSON.stringify(obj)); // respone ke end se ye data leke chala gaya ab ye url hit karo tumko milega
-    }
-    if(request.url == "/about"){ // http://localhost:8000/about
-// agar about hai to ye kaam kargega
-    }
-    if(request.url ==  "/course"){
-
-    }
-   response.end("welcome to SERVER")
+// connet to mongoDB
+mongoose.connect(process.env.DBURL).then(()=>{
+    console.log("DB connected successfully");
+    app.listen(process.env.PORT || 3000, ()=>{
+        console.log(`Server is running on port ${process.env.PORT}`);
+    })
+}).catch((err)=>{
+    console.log("DB connection failed", err);
 })
-server.listen("8000") // http://localhost:8000
-// ye thumara sever ban gaya ab tum isko browser pe run kar sakte hao and jo bhi response hai usko dekh sakte hao
+
 
