@@ -87,7 +87,7 @@ for(let i of products.data){
     name.innerText = i.productname.toLocaleUpperCase();
     container.appendChild(name);
     let price = document.createElement("h4");
-    price.innerText = "$"+i.price;
+    price.innerText = "RS"+i.price;
     container.appendChild(price);
     card.appendChild(container);
     document.getElementById("products").appendChild(card);
