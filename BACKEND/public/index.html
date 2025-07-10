@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Data & Jokes</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    h2 { color: darkblue; }
+    .joke { margin-bottom: 15px; padding: 10px; background-color: #f2f2f2; border-radius: 5px; }
+  </style>
+</head>
+<body>
+  <h1>Welcome to Anurag Kashyap's Website</h1>
+
+  <h2>User Information</h2>
+  <div id="userdata"></div>
+
+  <h2>Jokes</h2>
+  <div id="jokes"></div>
+
+  <script>
+    // Fetch User Data
+    fetch('/userdata')
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById('userdata');
+        for (const key in data) {
+          const p = document.createElement('p');
+          p.textContent = `${key}: ${data[key]}`;
+          container.appendChild(p);
+        }
+      });
+
+    // Fetch Jokes
+    fetch('/jokes')
+      .then(res => res.json())
+      .then(data => {
+        const jokesContainer = document.getElementById('jokes');
+        data.forEach(joke => {
+          const div = document.createElement('div');
+          div.className = 'joke';
+          div.innerHTML = `<strong>${joke.title}</strong><br>${joke.joke}`;
+          jokesContainer.appendChild(div);
+        });
+      });
+  </script>
+</body>
+</html>
